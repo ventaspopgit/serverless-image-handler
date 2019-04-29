@@ -76,6 +76,9 @@ Parameters:
     Description: Allow unsafe Url?
     Type: String
     Default: 'Yes'
+    AllowedValues:
+      - 'Yes'
+      - 'No'
 
   SecurityKey:
     Description: in case of non-unsafe urls, this security key is used.
