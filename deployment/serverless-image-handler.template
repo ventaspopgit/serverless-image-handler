@@ -145,7 +145,7 @@ Mappings:
     CustomResource:
       S3Bucket: %%BUCKET_NAME%%
       S3Key: >-
-        serverless-image-handler/%%VERSION%%/serverless-image-handler-custom-resource.zip
+        vp-serverless-image-handler/%%VERSION%%/serverless-image-handler-custom-resource.zip
       Name: serverless-image-handler-custom-resource
       Handler: image_handler_custom_resource/cfn_custom_resource.lambda_handler
       Description: >-
