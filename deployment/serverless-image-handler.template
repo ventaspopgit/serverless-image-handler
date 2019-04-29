@@ -71,6 +71,15 @@ Parameters:
       - 731
       - 1827
       - 3653
+  
+  UnsafeUrl:
+    Description: Allow unsafe Url?
+    Type: String
+    Default: 'Yes'
+
+  SecurityKey:
+    Description: in case of non-unsafe urls, this security key is used.
+    Type: String
 
   DeployUI:
     Description: >-
@@ -117,6 +126,10 @@ Metadata:
         default: Enable CORS?
       CorsOrig:
         default: CORS Origin
+      UnsafeUrl:
+        default: Unsafe Url
+      SecurityKey:
+        default: Thumbor Security Key
       LambdaLogRetention:
         default: Lambda Log Retention
       DeployUI:
@@ -390,6 +403,8 @@ Resources:
           REKOGNITION_REGION: us-east-1
           ENABLE_CORS: !Ref EnableCors
           CORS_ORIGIN: !Ref CorsOrig
+          ALLOW_UNSAFE_URL: !Ref UnsafeUrl
+          SECURITY_KEY: !Ref SecurityKey
           SEND_ANONYMOUS_DATA: !FindInMap
             - Send
             - AnonymousUsage
@@ -398,7 +413,6 @@ Resources:
             - CreateUniqueID
             - UUID
           LOG_LEVEL: INFO
-          ALLOW_UNSAFE_URL: True
   ImageHandlerLogGroup:
     DeletionPolicy: Retain
     Type: 'AWS::Logs::LogGroup'
